@@ -309,6 +309,7 @@ $tlCfg->smarty_debug = false;
  *  put it out of reach via web or configure access denied.
  */
 $tlCfg->log_path = '/var/testlink/logs/'; /* unix example */
+// $tlCfg->log_path = 'D:/program/wamp64/www/testlink/logs/'; /* windows example */
 if (($lp = getenv('TESTLINK_LOG_PATH'))) {
   $tlCfg->log_path = trim($lp);
 }
@@ -1533,6 +1534,7 @@ $g_repositoryType = TL_REPOSITORY_TYPE_FS;
  *
  **/
 $g_repositoryPath = '/var/testlink/upload_area/';  /* unix example */
+// $g_repositoryPath = 'd:/program/wamp64/www/testlink/upload_area/';  /* windows example */
 if (($upa = getenv('TESTLINK_UPLOAD_AREA'))) {
   $g_repositoryPath = trim($upa);
 }
