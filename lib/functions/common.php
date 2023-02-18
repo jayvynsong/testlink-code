@@ -1919,12 +1919,12 @@ function getGrantSetWithExit(&$dbHandler,&$argsObj,&$tprojMgr,$opt=null) {
 
   // check right ONLY if option is enabled
   $tprojOpt = $tprojMgr->getOptions($argsObj->tproject_id);
-//  if($tprojOpt->inventoryEnabled) {
-//    $invr = array('project_inventory_view','project_inventory_management');
-//    foreach($invr as $r){
-//      $grants[$r] = ($user->hasRight($dbHandler,$r) == 'yes') ? 1 : 0;
-//    }
-//  }
+  if($tprojOpt->inventoryEnabled) {
+    $invr = array('project_inventory_view','project_inventory_management');
+    foreach($invr as $r){
+      $grants[$r] = ($user->hasRight($dbHandler,$r) == 'yes') ? 1 : 0;
+    }
+  }
 
   $grants['tproject_user_role_assignment'] = "no";
   if( $argsObj->user->hasRight($dbH,"testproject_user_role_assignment",

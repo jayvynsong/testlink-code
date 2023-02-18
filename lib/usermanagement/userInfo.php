@@ -98,38 +98,27 @@ $smarty->display($templateCfg->template_dir . $templateCfg->default_template);
  */
 function init_args()
 {
-//  $iParams = array("firstName" => array("POST",tlInputParameter::STRING_N,0,30),
-//                   "lastName" => array("REQUEST",tlInputParameter::STRING_N,0,30),
-//                   "emailAddress" => array("REQUEST",tlInputParameter::STRING_N,0,100),
-//                   "locale" => array("POST",tlInputParameter::STRING_N,0,10),
-//                   "oldpassword" => array("POST",tlInputParameter::STRING_N,0,32),
-//                   "newpassword" => array("POST",tlInputParameter::STRING_N,0,32),
-//                   "doAction" => array("POST",tlInputParameter::STRING_N,0,15,null,'checkDoAction'), 
-//                   "userinfo_token" => array(tlInputParameter::STRING_N, 0, 255));
-//
-//  $pParams = I_PARAMS($iParams);
-  
-//  $args = new stdClass();
-//  $args->user = new stdClass();
-//  $args->user->firstName = $pParams["firstName"];
-//  $args->user->lastName = $pParams["lastName"];
-//  $args->user->emailAddress = $pParams["emailAddress"];
-//  $args->user->locale = $pParams["locale"];
-//  $args->oldpassword = $pParams["oldpassword"];
-//  $args->newpassword = $pParams["newpassword"];
-//  $args->doAction = $pParams["doAction"];
-//  $args->userinfo_token = $pParams["userinfo_token"];
+  $iParams = array("firstName" => array("POST",tlInputParameter::STRING_N,0,30),
+                   "lastName" => array("REQUEST",tlInputParameter::STRING_N,0,30),
+                   "emailAddress" => array("REQUEST",tlInputParameter::STRING_N,0,100),
+                   "locale" => array("POST",tlInputParameter::STRING_N,0,10),
+                   "oldpassword" => array("POST",tlInputParameter::STRING_N,0,32),
+                   "newpassword" => array("POST",tlInputParameter::STRING_N,0,32),
+                   "doAction" => array("POST",tlInputParameter::STRING_N,0,15,null,'checkDoAction'), 
+                   "userinfo_token" => array(tlInputParameter::STRING_N, 0, 255));
 
+  $pParams = I_PARAMS($iParams);
+  
   $args = new stdClass();
   $args->user = new stdClass();
-  $args->user->firstName = $_SESSION['currentUser']->firstName;
-  $args->user->lastName = $_SESSION['currentUser']->lastName;
-  $args->user->emailAddress = $_SESSION['currentUser']->emailAddress;
-  $args->user->locale = $_SESSION['currentUser']->locale;
-  $args->oldpassword = $_SESSION['currentUser']->oldpassword;
-  $args->newpassword = $_SESSION['currentUser']->newpassword;
-  $args->doAction = $_SESSION['currentUser']->doAction;
-  $args->userinfo_token = $_SESSION['currentUser']->userinfo_token;
+  $args->user->firstName = $pParams["firstName"];
+  $args->user->lastName = $pParams["lastName"];
+  $args->user->emailAddress = $pParams["emailAddress"];
+  $args->user->locale = $pParams["locale"];
+  $args->oldpassword = $pParams["oldpassword"];
+  $args->newpassword = $pParams["newpassword"];
+  $args->doAction = $pParams["doAction"];
+  $args->userinfo_token = $pParams["userinfo_token"];
 
   $args->userID = isset($_SESSION['currentUser']) ? $_SESSION['currentUser']->dbID : 0;
         
